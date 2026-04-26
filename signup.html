@@ -1,43 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Signup - Growth marketing agency </title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sign Up - Growth markinting agency </title>
 </head>
 <body>
-    <h1>Create Account</h1>
-    <form id="signupForm">
-        <input type="email" id="email" placeholder="Email" required><br><br>
-        <input type="password" id="password" placeholder="Password" required><br><br>
-        <button type="submit">Sign Up</button>
-    </form>
-    <p>Already have an account? <a href="login.html">Login</a></p>
 
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyCncLJHgcttR8wFQhDgJNSMgHfPw_yJ7MYo",
-            authDomain: "growth-digital-agency.firebaseapp.com",
-            projectId: "growth-digital-agency",
-            storageBucket: "growth-digital-agency.firebasestorage.app",
-            messagingSenderId: "787936584419",
-            appId: "1:787936584419:web:91e72eaadd6001a08daaa656"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
+<h1>Sign Up</h1>
 
-        document.getElementById("signupForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            auth.createUserWithEmailAndPassword(email, password)
-                .then(() => {
-                    alert("Account created! You can now login.");
-                    window.location.href = "login.html";
-                })
-                .catch((error) => alert(error.message));
-        });
-    </script>
+<input type="email" id="email" placeholder="Email"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+<button onclick="signup()">Sign Up</button>
+
+<p><a href="login.html">Already have an account? Login</a></p>
+
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCncLJHgcttR8wFQhDgJNSMgHfPw_yJ7MYo",
+  authDomain: "growth-digital-agency.firebaseapp.com",
+  projectId: "growth-digital-agency",
+  storageBucket: "growth-digital-agency.firebasestorage.app",
+  messagingSenderId: "787936504419",
+  appId: "1:787936504419:web:91e72eaadd6001a08daaa656"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+function signup() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(() => {
+      alert("Account created! Please login.");
+      window.location.href = "login.html";
+    })
+    .catch((error) => alert(error.message));
+}
+</script>
+
 </body>
 </html>
