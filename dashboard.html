@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login - Abdul Digital</title>
 </head>
-
 <body>
 
-<header class="navbar">
-    <h1>Client Dashboard</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="admin.html">Admin</a>
-        <button onclick="logout()">Logout</button>
-    </nav>
-</header>
+<h1>Login</h1>
 
-<section class="dashboard">
+<input type="email" id="email" placeholder="Email"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+<button onclick="login()">Login</button>
 
-    <h2>Welcome</h2>
+<p><a href="signup.html">No account? Sign up</a></p>
 
-    <ul>
-        <li>📢 Run Ads</li>
-        <li>📈 Grow Social Media</li>
-        <li>🌐 Build Websites</li>
-        <li>📊 Strategy</li>
-    </ul>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCncLJHgcttR8wFQhDgJNSMgHfPw_yJ7MYo",
+  authDomain: "growth-digital-agency.firebaseapp.com",
+  projectId: "growth-digital-agency",
+  storageBucket: "growth-digital-agency.firebasestorage.app",
+  messagingSenderId: "787936504419",
+  appId: "1:787936504419:web:91e72eaadd6001a08daaa656"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
-    <h2>Pay for Service</h2>
-
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
-      <input type="hidden" name="cmd" value="_xclick">
-      <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
-      <input type="hidden" name="item_name" value="Marketing Service">
-      <input type="hidden" name="amount" value="20">
-      <input type="hidden" name="currency_code" value="USD">
-      <button type="submit">Pay Now</button>
-    </form>
-
-</section>
-
-<script type="module" src="script.js"></script>
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      window.location.href = "dashboard.html";
+    })
+    .catch((error) => alert(error.message));
+}
+</script>
 
 </body>
 </html>
