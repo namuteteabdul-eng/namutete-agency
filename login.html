@@ -1,8 +1,43 @@
-<form onsubmit="login(event)">
-    <input type="email" id="username" placeholder="Email" required><br>
-    <input type="password" id="password" placeholder="Password" required><br>
-    <button type="submit">Login</button>
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Groth marketing agency </title>
+</head>
+<body>
 
-<script type="module" src="script.js"></script>
-<p>Don't have an account? <a href="signup.html">Sign up</a></p>
+<h1>Login</h1>
+
+<input type="email" id="email" placeholder="Email"><br><br>
+<input type="password" id="password" placeholder="Password"><br><br>
+<button onclick="login()">Login</button>
+
+<p><a href="signup.html">No account? Sign up</a></p>
+
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyCncLJHgcttR8wFQhDgJNSMgHfPw_yJ7MYo",
+  authDomain: "growth-digital-agency.firebaseapp.com",
+  projectId: "growth-digital-agency",
+  storageBucket: "growth-digital-agency.firebasestorage.app",
+  messagingSenderId: "787936504419",
+  appId: "1:787936504419:web:91e72eaadd6001a08daaa656"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      window.location.href = "dashboard.html";
+    })
+    .catch((error) => alert(error.message));
+}
+</script>
+
+</body>
+</html>
+ 
