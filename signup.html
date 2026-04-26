@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Signup</title>
+    <title>Signup - Abdul Digital</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <h1>Create Account</h1>
+    <form id="signupForm">
+        <input type="email" id="email" placeholder="Email" required><br><br>
+        <input type="password" id="password" placeholder="Password" required><br><br>
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="login.html">Login</a></p>
 
-<h2>Create Account</h2>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCncLJHgcttR8wFQhDgJNSMgHfPw_yJ7MYo",
+            authDomain: "growth-digital-agency.firebaseapp.com",
+            projectId: "growth-digital-agency",
+            storageBucket: "growth-digital-agency.firebasestorage.app",
+            messagingSenderId: "787936584419",
+            appId: "1:787936584419:web:91e72eaadd6001a08daaa656"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
 
-<form onsubmit="signup(event)">
-    <input type="email" id="email" placeholder="Email" required><br>
-    <input type="password" id="password" placeholder="Password" required><br>
-    <button type="submit">Sign Up</button>
-</form>
-
-<script type="module" src="script.js"></script>
-
+        document.getElementById("signupForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(() => {
+                    alert("Account created! You can now login.");
+                    window.location.href = "login.html";
+                })
+                .catch((error) => alert(error.message));
+        });
+    </script>
 </body>
 </html>
