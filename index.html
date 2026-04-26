@@ -1,7 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Growth Forge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-  <form onsubmit="sendMessage(event)">
-    <input type="text" id="name" placeholder="Your Name" required><br>
-    <input type="email" id="email" placeholder="Your Email" required><br>
-    <textarea id="message" placeholder="Your Message" required></textarea><br>
-    <button type="submit">Send Message</button>
-</form>
+<body>
+
+<header class="navbar">
+    <h1>ABDUL DIGITAL</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="login.html">Login</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>We Grow Your Business Online 🚀</h2>
+    <p>Smart Marketing. Real Results.</p>
+    <a href="signup.html" class="btn">Get Started</a>
+</section>
+
+<!-- ✅ IMAGE (NO DOWNLOAD NEEDED) -->
+<section class="image-section">
+    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf" alt="Professional team">
+</section>
+
+<section id="services" class="services">
+    <h2>Our Services</h2>
+
+    <div class="service-box">
+        <h3>Social Media Marketing</h3>
+        <p>Grow your audience fast.</p>
+    </div>
+
+    <div class="service-box">
+        <h3>Website Design</h3>
+        <p>Professional business websites.</p>
+    </div>
+
+    <div class="service-box">
+        <h3>SEO Optimization</h3>
+        <p>Rank on Google.</p>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+
+    <form onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name" required><br>
+        <input type="email" id="email" placeholder="Your Email" required><br>
+        <textarea id="message" placeholder="Your Message" required></textarea><br>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Abdul Digital</p>
+</footer>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
