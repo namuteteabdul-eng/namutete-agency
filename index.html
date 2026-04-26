@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <head>
     <title>Abdul Digital</title>
@@ -6,49 +6,95 @@
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <header class="navbar">
-        <h1>Growth marketing agency </h1>
-    </header>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
+
+<script>
+  // Your Firebase config (copy from earlier)
+  const firebaseConfig = {
+    apiKey: "AIzaSyCncLJHgcttR8wFQhDgJNSMgHfPw_yJ7MYo",
+    authDomain: "growth-digital-agency.firebaseapp.com",
+    projectId: "growth-digital-agency",
+    storageBucket: "growth-digital-agency.firebasestorage.app",
+    messagingSenderId: "787936584419",
+    appId: "1:787936584419:web:91e72eaadd6001a08daaa656"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+
+  // Check if user is logged in
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      document.body.innerHTML += `<p>Logged in as: ${user.email}</p>`;
+    }
+  });
+</script>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <h1>ABDUL DIGITAL</h1>
     <nav>
+        <a href="#">Home</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
         <a href="login.html">Login</a>
-        <a href="signup.html">Signup</a>
     </nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h2>Smart People. Real Results.</h2>
-        <p>Smart People. Real Results.</p>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-        <a href="login.html">Login</a>
-    </section>
+<!-- HERO -->
+<section class="hero">
+    <h2>We Grow Your Business Online 🚀</h2>
+    <p>Smart Marketing. Real Results.</p>
+    <a href="signup.html" class="btn">Get Started</a>
+</section>
 
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore-compat.js"></script>
+<!-- IMAGE -->
+<section class="image-section">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Team">
+</section>
 
-    <script>
-        const firebaseConfig = {
-            apiKey: "AIzaSyCncLJHgcttR8wFQhDgJNSMgHfPw_yJ7MYo",
-            authDomain: "growth-digital-agency.firebaseapp.com",
-            projectId: "growth-digital-agency",
-            storageBucket: "growth-digital-agency.firebasestorage.app",
-            messagingSenderId: "787936584419",
-            appId: "1:787936584419:web:91e72eaadd6001a08daaa656"
-        };
+<!-- SERVICES -->
+<section id="services" class="services">
+    <h2>Our Services</h2>
 
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
+    <div class="service-box">
+        <h3>Social Media Marketing</h3>
+        <p>Grow your audience and engagement.</p>
+    </div>
 
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                document.body.innerHTML += `<p style="background:green; color:white; padding:10px;">Logged in as: ${user.email}</p>`;
-            }
-        });
-    </script>
+    <div class="service-box">
+        <h3>Website Design</h3>
+        <p>Modern and responsive websites.</p>
+    </div>
+
+    <div class="service-box">
+        <h3>SEO Optimization</h3>
+        <p>Rank higher on Google.</p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <h2>Contact Us</h2>
+
+    <form onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name" required><br><br>
+        <input type="email" id="email" placeholder="Your Email" required><br><br>
+        <textarea id="message" placeholder="Your Message" required></textarea><br><br>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Abdul Digital</p>
+</footer>
+
+<script type="module" src="script.js"></script>
+
 </body>
 </html>
