@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <h1>Client Dashboard</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="admin.html">Admin</a>
+        <button onclick="logout()">Logout</button>
+    </nav>
+</header>
+
+<section class="dashboard">
+
+    <h2>Welcome</h2>
+
+    <ul>
+        <li>📢 Run Ads</li>
+        <li>📈 Grow Social Media</li>
+        <li>🌐 Build Websites</li>
+        <li>📊 Strategy</li>
+    </ul>
+
+    <h2>Pay for Service</h2>
+
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+      <input type="hidden" name="cmd" value="_xclick">
+      <input type="hidden" name="business" value="YOUR_PAYPAL_EMAIL">
+      <input type="hidden" name="item_name" value="Marketing Service">
+      <input type="hidden" name="amount" value="20">
+      <input type="hidden" name="currency_code" value="USD">
+      <button type="submit">Pay Now</button>
+    </form>
+
+</section>
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>
